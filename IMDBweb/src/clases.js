@@ -1,9 +1,16 @@
-"use strict";
-exports.__esModule = true;
-exports.Imdb = exports.Movie = exports.Professional = void 0;
-var fs = require("fs-extra");
+import * as fs from "fs-extra";
 var Professional = /** @class */ (function () {
     function Professional(name, age, genre, weight, height, hairColor, eyeColor, race, isRetired, nationality, oscarsNum, profession) {
+        if (genre === void 0) { genre = ''; }
+        if (weight === void 0) { weight = 0; }
+        if (height === void 0) { height = 0; }
+        if (hairColor === void 0) { hairColor = ''; }
+        if (eyeColor === void 0) { eyeColor = ''; }
+        if (race === void 0) { race = ''; }
+        if (isRetired === void 0) { isRetired = false; }
+        if (nationality === void 0) { nationality = ''; }
+        if (oscarsNum === void 0) { oscarsNum = 0; }
+        if (profession === void 0) { profession = ''; }
         this.name = name;
         this.age = age;
         this.genre = genre;
@@ -22,9 +29,11 @@ var Professional = /** @class */ (function () {
     };
     return Professional;
 }());
-exports.Professional = Professional;
+export { Professional };
 var Movie = /** @class */ (function () {
     function Movie(title, actors, releaseYear, nationality, genre, director) {
+        if (nationality === void 0) { nationality = ''; }
+        if (genre === void 0) { genre = ''; }
         this.title = title;
         this.actors = actors;
         this.releaseYear = releaseYear;
@@ -38,7 +47,7 @@ var Movie = /** @class */ (function () {
     };
     return Movie;
 }());
-exports.Movie = Movie;
+export { Movie };
 var Imdb = /** @class */ (function () {
     function Imdb(peliculas) {
         this.peliculas = peliculas;
@@ -55,7 +64,4 @@ var Imdb = /** @class */ (function () {
     };
     return Imdb;
 }());
-exports.Imdb = Imdb;
-
-
-$();
+export { Imdb };

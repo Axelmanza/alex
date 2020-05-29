@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/fs-extra": "^9.0.1",
     "@types/jquery": "^3.3.38"
   },
   "devDependencies": {
