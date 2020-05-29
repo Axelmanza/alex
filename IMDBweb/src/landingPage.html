@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="clases.js"></script>
+    <title>My Landing Page</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <a class="active" href="#">IMDB</a>
+        </li>
+        <li>
+            <a href="#">HOME</a>
+        </li>
+        <li>
+            <a href="#" id="myBtn">FILMS</a>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div id="modalView">
+
+                  </div>
+                </div>
+              </div>
+        </li>
+    </ul>
+    <header id="showcase">
+        <h1>Welcome to IMDB</h1>
+        <p>Your favourite film page </p>
+        <p id='datos' class="data"></p>
+    </header>
+    <section id="section-a">
+        <p>Actors</p>
+        <form class="Professional" style="display: flex;">
+            <input type="img" class="form-control" name="img" id="img" placeholder="Image">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+            <input type="number" class="form-control" name="age" id="age" placeholder="Age">
+            <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
+            <input type="number" class="form-control" name="oscars" id="oscars" placeholder="Oscars">
+
+            <input type="button" class="btn btn-dark" value="Save" onclick="getInfo()">
+        </form>
+        <br>
+        <p>Films</p>
+        <form style="display: flex;">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+            <input type="number" class="form-control" name="year" id="mail" placeholder="Year">
+            <input type="text" class="form-control" name="lang" id="lang" placeholder="Language">
+            <input type="text" class="form-control" name="actor" id="actor" placeholder="Actor">
+            <input type="img" class="form-control" name="img" id="img" placeholder="Image">
+            <input type="" class="form-control" name="" id="" placeholder="">
+            <input type="" class="form-control" name="" id="" placeholder="">
+            <input type="" class="form-control" name="" id="" placeholder="">
+
+            <input type="button" class="btn btn-dark" value="Save" onclick="getInfo()">
+        </form>
+    </section>
+
+    
+    <script>
+        var actors = [];
+        var films = [];
+        function getInfoActors(){
+            let nombre = document.getElementById('name').value;
+            let age = document.getElementById('age').value;
+            let genre = document.getElementById('genre').value;
+            let oscars = document.getElementById('oscars').value;
+            let actor = new Professional(nombre,age,genre,oscars)
+
+            actors.push(json);
+            console.log(actors);
+            document.getElementById('name').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('genre').value = '';
+            document.getElementById('oscars').value = '';
+
+        }
+        function datos(){
+            document.getElementById('datos').innerHTML = JSON.stringify(dataForm)
+        }
+        function filter(){
+            let arr = '';
+            for (let i = 0; i < dataForm.length; i++){
+                if(dataForm[i]['name'].indexOf('r') != -1){
+                    arr += JSON.stringify(dataForm[i]) + '<br>'
+                }
+            }
+            return document.getElementById('datos').innerHTML = arr;
+        }
+        // Modal
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+            document.getElementById('modalView').innerHTML = 'Array de peliculas!!!!'
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
